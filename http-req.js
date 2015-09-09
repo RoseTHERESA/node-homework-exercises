@@ -14,15 +14,15 @@ Callbacks!!!
 */
 
 var http = require("http");
-var arr = []
+var arr = [];
 http.get("http://omdbapi.com/?i=tt0241527", function(res){
     res.setEncoding("utf8");
     res.on("data", function(data){
         arr.push(data); //ask about this line
         console.log("DATA is ", data);
         console.log("ARR is ", arr);
-    })
-    console.log("DONE?")
+    });
+    console.log("DONE?");
     res.on("end", function(){
 	    console.log("ACTUALLY DONE?");
 	    http.get("http://omdbapi.com/?i=tt0295297", function(res){
@@ -31,7 +31,7 @@ http.get("http://omdbapi.com/?i=tt0241527", function(res){
 	    	
 		        arr.push(data);
 		        console.log("last one", arr);
-		    })	
-	    })
-	})
+		    });	
+	    });
+	   });
 });
